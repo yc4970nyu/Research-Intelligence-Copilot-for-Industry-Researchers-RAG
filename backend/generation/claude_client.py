@@ -15,8 +15,8 @@ _api_available: Optional[bool] = None
 
 def is_api_available() -> bool:
     """
-    Check if the Anthropic API key is set and working.
-    Caches the result after the first successful call.
+    Check if the Anthropic API is usable (key set + has credits).
+    Caches the result so we don't re-check on every request.
     """
     global _api_available
     if _api_available is not None:
@@ -24,9 +24,13 @@ def is_api_available() -> bool:
     if not ANTHROPIC_API_KEY:
         _api_available = False
         return False
-    # we'll assume it's available if the key exists and let call_claude handle errors
-    _api_available = True
-    return True
+    # do a tiny test call to verify the key actually works
+    try:
+        call_claude(system="Reply OK.", user="ping", max_tokens=5)
+        _api_available = True
+    except Exception:
+        _api_available = False
+    return _api_available
 
 
 def call_claude(

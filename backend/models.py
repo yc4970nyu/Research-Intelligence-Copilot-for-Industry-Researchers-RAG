@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 
 
 # one chunk that comes out of the retrieval step
@@ -20,7 +20,7 @@ class QueryRequest(BaseModel):
 # what /query returns back to the frontend
 class QueryResponse(BaseModel):
     answer: str
-    citations: list[Chunk]
+    citations: List[Chunk]
     rewritten_query: Optional[str] = None
     intent: Optional[str] = None
     sufficient_evidence: bool
@@ -29,5 +29,5 @@ class QueryResponse(BaseModel):
 # what /ingest returns
 class IngestResponse(BaseModel):
     message: str
-    files_processed: list[str]
+    files_processed: List[str]
     total_chunks: int

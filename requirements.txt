@@ -1,0 +1,15 @@
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+python-multipart==0.0.9
+
+# pdf parsing
+pymupdf==1.24.3
+
+# numerical stuff for embeddings and similarity
+numpy==1.26.4
+
+# http client for mistral api calls
+httpx==0.27.0
+
+# for loading .env file
+python-dotenv==1.0.1

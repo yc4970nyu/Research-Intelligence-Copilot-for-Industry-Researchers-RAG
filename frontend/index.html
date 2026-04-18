@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Intelligence Copilot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- left sidebar: upload + index stats -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h1>Research Copilot</h1>
+      <p class="subtitle">Upload papers, ask questions</p>
+    </div>
+
+    <div class="upload-section">
+      <div class="drop-zone" id="dropZone">
+        <div class="drop-icon">&#128196;</div>
+        <p>Drop PDF files here</p>
+        <p class="or-text">or</p>
+        <label class="upload-btn" for="fileInput">Browse files</label>
+        <input type="file" id="fileInput" accept=".pdf" multiple hidden />
+      </div>
+
+      <div id="uploadStatus" class="upload-status hidden"></div>
+
+      <button class="ingest-btn" id="ingestBtn" disabled>
+        Ingest selected files
+      </button>
+    </div>
+
+    <div class="index-panel">
+      <div class="index-panel-header">
+        <span>Indexed documents</span>
+        <button class="refresh-btn" id="refreshBtn" title="Refresh">&#8635;</button>
+      </div>
+      <div id="indexStats" class="index-stats">
+        <span class="muted">No documents yet</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- main: chat -->
+  <main class="chat-area">
+    <div class="chat-messages" id="chatMessages">
+      <div class="welcome-msg">
+        <h2>Hello! I'm your Research Copilot.</h2>
+        <p>Upload PDF research papers on the left, then ask me anything about them.</p>
+        <p class="hint">Try: <em>"What dataset was used?"</em> &nbsp;|&nbsp; <em>"Compare the models in a table"</em> &nbsp;|&nbsp; <em>"Which papers focus on retrieval?"</em></p>
+      </div>
+    </div>
+
+    <div class="chat-input-row">
+      <textarea
+        id="questionInput"
+        placeholder="Ask a question about your documents..."
+        rows="1"
+      ></textarea>
+      <button class="send-btn" id="sendBtn">&#9658;</button>
+    </div>
+  </main>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

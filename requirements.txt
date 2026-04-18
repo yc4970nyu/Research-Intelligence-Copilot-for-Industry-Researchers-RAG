@@ -5,10 +5,13 @@ python-multipart==0.0.9
 # pdf parsing
 pymupdf==1.24.3
 
-# numerical stuff for embeddings and similarity
+# embeddings - ONNX based, no PyTorch dependency
+fastembed==0.3.6
+
+# numerical stuff for similarity search
 numpy==1.26.4
 
-# http client for mistral api calls
+# http client for anthropic api calls
 httpx==0.27.0
 
 # for loading .env file

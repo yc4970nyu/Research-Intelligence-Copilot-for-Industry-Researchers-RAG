@@ -1,0 +1,41 @@
+# python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# env
+.env
+*.env
+
+# index / vector store files (generated at runtime)
+data/index/
+backend/index/
+*.pkl
+*.npy
+*.faiss
+
+# macos
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# logs
+*.log
+logs/
+
+# uploaded files (runtime)
+uploads/
